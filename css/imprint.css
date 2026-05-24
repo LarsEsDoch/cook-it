@@ -1,0 +1,41 @@
+main {
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.imprint-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.imprint-container h1 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.imprint-container h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.imprint-container p {
+    margin: 0 0 15px 0;
+    color: #4a3f35;
+}
+
+.contact-highlight {
+    background-color: var(--accent-color);
+    padding: 15px 20px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+}
