@@ -1,3 +1,15 @@
+:root {
+    --bg-color: #fcfaf7;
+    --text-color: #2c2520;
+    --primary-color: #e06a3b;
+    --primary-hover: #c55328;
+    --accent-color: #f3eade;
+    --border-color: #e6dfd5;
+    --footer-bg: #1e1a17;
+    --footer-text: #ae9f96;
+    --max-width: 800px;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -124,8 +136,12 @@ nav .right {
     transform: translateY(-2px);
 }
 
+.recipes {
+    min-height: 300px;
+}
+
 .footer {
-    background-color: #1e293b;
+    background-color: #393b41;
     color: #94a3b8;
     padding: 50px 20px;
     margin-top: 80px;
