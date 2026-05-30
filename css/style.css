@@ -96,6 +96,7 @@ nav .right {
     text-align: center;
     color: #ffffff;
     font-family: Arial, sans-serif;
+    margin-bottom: 100px;
 }
 
 .hero-content {
@@ -139,6 +140,84 @@ nav .right {
 .recipes {
     min-height: 300px;
 }
+
+
+.recipes-page {
+    padding: 80px 8%;
+}
+
+.recipes-page h1 {
+    margin-bottom: 32px;
+    font-size: 40px;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.recipe-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 24px;
+}
+
+.recipe-card-content h2 {
+    margin-bottom: 12px;
+}
+
+.recipe-card-content p {
+    margin-bottom: 16px;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.recipe-detail {
+    padding: 80px 8%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.recipe-detail-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 32px;
+}
+
+.recipe-detail h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+.recipe-detail h2 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.recipe-detail li {
+    margin-bottom: 10px;
+}
+
 
 .footer {
     background-color: #393b41;
