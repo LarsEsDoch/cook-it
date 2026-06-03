@@ -7,27 +7,33 @@ const recipe = recipes.find((item) => item.id === recipeId);
 
 if (recipeDetail && recipe) {
     recipeDetail.innerHTML = `
-        <img src="${recipe.image}" alt="${recipe.title}" class="recipe-detail-image">
+            <img src="${recipe.image}" alt="${recipe.title}" class="recipe-detail-image">
 
-        <h1>${recipe.title}</h1>
-        <p>${recipe.description}</p>
+            <h1>${recipe.title}</h1>
+            <p>${recipe.description}</p>
 
-        <div class="recipe-meta">
-            <span>Time: ${recipe.time}</span>
-            <span>Difficulty: ${recipe.difficulty}</span>
-            <span>Servings: ${recipe.servings}</span>
-        </div>
+            <div class="recipe-meta">
+                <span>Time: ${recipe.time}</span>
+                <span>Difficulty: ${recipe.difficulty}</span>
+                <span>Servings: ${recipe.servings}</span>
+            </div>
 
-        <h2>Ingredients</h2>
-        <ul>
-            ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
-        </ul>
+            ${
+        recipe.author && recipe.createdAt
+            ? `<p class="recipe-author">Added by ${recipe.author} on ${recipe.createdAt}</p>`
+            : ""
+    }
 
-        <h2>Preparation</h2>
-        <ol>
-            ${recipe.steps.map((step) => `<li>${step}</li>`).join("")}
-        </ol>
-    `;
+            <h2>Ingredients</h2>
+            <ul>
+                ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+            </ul>
+
+            <h2>Preparation</h2>
+            <ol>
+                ${recipe.steps.map((step) => `<li>${step}</li>`).join("")}
+            </ol>
+        `;
 } else if (recipeDetail) {
     recipeDetail.innerHTML = `
         <h1>Recipe not found</h1>
