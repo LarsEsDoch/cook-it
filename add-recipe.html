@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cook it - Add Recipe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/add-recipe.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html" class="logo-link">
+            <img src="img/icon.png" alt="Icon" id="icon">
+            <span id="header-text">Cookit.de</span>
+        </a>
+        <label for="search"></label>
+        <input placeholder="Search..." type="text" id="search" name="search" class="right">
+    </nav>
+</header>
+
+<main class="add-recipe-page">
+    <h1>Add your own recipe</h1>
+    <p>
+        Trage dein Rezept ein, digitalisiere Zutaten und Zubereitungsschritte
+        und speichere es direkt in deiner Rezeptsammlung.
+    </p>
+
+    <form id="add-recipe-form" class="add-recipe-form">
+        <label for="author">Your name</label>
+        <input type="text" id="author" required placeholder="e.g. Max">
+
+        <label for="title">Recipe title</label>
+        <input type="text" id="title" required placeholder="e.g. Homemade Lasagna">
+
+        <label for="description">Short description</label>
+        <textarea id="description" required placeholder="Describe your recipe shortly"></textarea>
+
+        <label for="time">Preparation time</label>
+        <input type="text" id="time" required placeholder="e.g. 30 min">
+
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty" required>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+
+        <label for="servings">Servings</label>
+        <input type="number" id="servings" min="1" required placeholder="e.g. 2">
+
+        <label for="ingredients">Ingredients</label>
+        <textarea id="ingredients" required placeholder="Write one ingredient per line"></textarea>
+        <p class="form-hint">One ingredient per line.</p>
+
+        <label for="steps">Preparation steps</label>
+        <textarea id="steps" required placeholder="Write one step per line"></textarea>
+        <p class="form-hint">One preparation step per line.</p>
+
+        <button type="submit" class="btn">Save recipe</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="index.html" class="logo-link">
+                <img src="img/icon_footer.png" alt="Icon">
+                <span>Cookit.de</span>
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="about-us.html">About us</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="imprint.html">Legal Notice</a>
+        </div>
+        <p class="copyright">© 2026 Cookit.de. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

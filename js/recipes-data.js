@@ -142,3 +142,6 @@ const recipes = [
         ]
     }
 ];
+
+const savedRecipes = JSON.parse(localStorage.getItem("userRecipes")) || [];
+recipes.push(...savedRecipes);
