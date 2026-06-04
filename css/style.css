@@ -34,6 +34,9 @@ nav {
 
 nav .right {
     margin-left: auto;
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .logo-link {

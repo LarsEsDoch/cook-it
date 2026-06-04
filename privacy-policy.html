@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/imprint.css">
     <script src="js/script.js" defer></script>
+    <script src="js/mobile.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
@@ -14,13 +15,24 @@
 </head>
 <body>
 <header>
-    <nav>
-        <a href="index.html" class="logo-link">
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link" id="menu-trigger">
             <img src="img/icon.png" alt="Icon" id="icon">
             <span id="header-text">Cookit.de</span>
         </a>
-        <label for="search"></label>
-        <input placeholder="Search..." type="text" id="search" name="search" class="right">
+
+        <nav id="menu">
+            <a href="recipes.html">Recipes</a>
+            <a href="category-overviw.html">Categories</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="tips-and-tricks.html">Tips and tricks</a>
+            <a href="help.html">Help</a>
+        </nav>
+
+        <form action="search.html" method="GET" class="right">
+            <label for="search"></label>
+            <input placeholder="Search..." type="text" id="search" name="q" class="search-input">
+        </form>
     </nav>
 </header>
 
@@ -78,7 +90,6 @@
         </div>
         <div class="footer-links">
             <a href="about-us.html">About us</a>
-            <a href="recipes.html">Recipes</a>
             <a href="privacy-policy.html">Privacy Policy</a>
             <a href="imprint.html">Legal Notice</a>
         </div>

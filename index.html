@@ -8,6 +8,7 @@
     <script src="js/script.js" defer></script>
     <script src="js/recipes-data.js" defer></script>
     <script src="js/recipes.js" defer></script>
+    <script src="js/mobile.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
@@ -29,7 +30,10 @@
             <a href="help.html">Help</a>
         </nav>
 
-        <input placeholder="Search..." type="text" id="search" name="search" class="right">
+        <form action="search.html" method="GET" class="right">
+            <label for="search"></label>
+            <input placeholder="Search..." type="text" id="search" name="q" class="search-input">
+        </form>
     </nav>
 </header>
 
@@ -73,6 +77,5 @@
         <p class="copyright">© 2026 Cookit.de. All rights reserved.</p>
     </div>
 </footer>
-<script src="js/mobile.js"></script>
 </body>
 </html>
