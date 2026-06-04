@@ -39,13 +39,14 @@ nav .right {
     align-items: center;
     gap: 12px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #icon {
     width: 42px;
     height: 42px;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 #header-text {
@@ -54,7 +55,6 @@ nav .right {
     color: rgb(0, 187, 0);
     margin: 0;
     letter-spacing: -0.5px;
-    transition: transform 0.3s ease;
 }
 
 #search {
@@ -460,8 +460,8 @@ nav .right {
     }
 }
 
-@media (min-width: 500px) {
-    #icon:hover, #header-text:hover {
+@media (hover: hover) {
+    .logo-link:hover #icon {
         transform: rotate(360deg);
     }
 }

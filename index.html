@@ -15,12 +15,20 @@
 </head>
 <body>
 <header>
-    <nav>
-        <a href="index.html" class="logo-link">
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link" id="menu-trigger">
             <img src="img/icon.png" alt="Icon" id="icon">
             <span id="header-text">Cookit.de</span>
         </a>
-        <label for="search"></label>
+
+        <nav id="menu">
+            <a href="recipes.html">Recipes</a>
+            <a href="category-overviw.html">Categories</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="tips-and-tricks.html">Tips and tricks</a>
+            <a href="help.html">Help</a>
+        </nav>
+
         <input placeholder="Search..." type="text" id="search" name="search" class="right">
     </nav>
 </header>
@@ -59,12 +67,12 @@
         </div>
         <div class="footer-links">
             <a href="about-us.html">About us</a>
-            <a href="recipes.html">Recipes</a>
             <a href="privacy-policy.html">Privacy Policy</a>
             <a href="imprint.html">Legal Notice</a>
         </div>
         <p class="copyright">© 2026 Cookit.de. All rights reserved.</p>
     </div>
 </footer>
+<script src="js/mobile.js"></script>
 </body>
 </html>
