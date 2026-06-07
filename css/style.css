@@ -39,6 +39,11 @@ nav .right {
     max-width: 100%;
 }
 
+.mobile-only,
+#menu a.mobile-only {
+    display: none;
+}
+
 .logo-link {
     display: flex;
     align-items: center;
@@ -499,13 +504,17 @@ nav .right {
     }
 }
 
-@media (hover: hover) and (max-width: 999px) {
+@media (hover: hover) and (max-width: 1099px) {
     nav, .main-nav {
         position: relative;
     }
 
     nav {
         height: auto;
+    }
+
+    nav.main-nav {
+        min-height: 48px;
     }
 
     #menu {
@@ -529,6 +538,11 @@ nav .right {
         color: #333333;
         font-size: 18px;
         transition: all 0.2s ease;
+    }
+
+    .mobile-only,
+    #menu a.mobile-only {
+        display: none;
     }
 
     #menu a:hover {
@@ -591,5 +605,11 @@ nav .right {
 @media (hover: hover) {
     .logo-link:hover #icon {
         transform: rotate(360deg);
+    }
+}
+
+@media not (hover: hover) {
+    #menu a.mobile-only {
+        display: block;
     }
 }
