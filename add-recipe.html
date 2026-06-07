@@ -67,15 +67,43 @@
         <label for="servings">Servings</label>
         <input type="number" id="servings" min="1" required placeholder="e.g. 2">
 
-        <label for="ingredients">Ingredients</label>
-        <textarea id="ingredients" required placeholder="Write one ingredient per line"></textarea>
-        <p class="form-hint">One ingredient per line.</p>
+        <div class="dynamic-field-section">
+            <label>Ingredients</label>
+            <div id="ingredients-list" class="dynamic-field-list">
+                <div class="dynamic-field-row">
+                    <input type="text" class="ingredient-input" required placeholder="e.g. 200g pasta">
+                    <button type="button" class="remove-field-btn">Delete</button>
+                </div>
+            </div>
+            <button type="button" id="add-ingredient-btn" class="secondary-btn">+ Add ingredient</button>
+        </div>
 
-        <label for="steps">Preparation steps</label>
-        <textarea id="steps" required placeholder="Write one step per line"></textarea>
-        <p class="form-hint">One preparation step per line.</p>
+        <div class="dynamic-field-section">
+            <label>Utensils</label>
+            <div id="utensils-list" class="dynamic-field-list">
+                <div class="dynamic-field-row">
+                    <input type="text" class="utensil-input" placeholder="e.g. frying pan">
+                    <button type="button" class="remove-field-btn">Delete</button>
+                </div>
+            </div>
+            <button type="button" id="add-utensil-btn" class="secondary-btn">+ Add utensil</button>
+        </div>
 
-        <button type="submit" class="btn">Save recipe</button>
+        <div class="dynamic-field-section">
+            <label>Preparation steps</label>
+            <div id="steps-list" class="dynamic-field-list">
+                <div class="dynamic-field-row">
+                    <input type="text" class="step-input" required placeholder="e.g. Boil the pasta.">
+                    <button type="button" class="remove-field-btn">Delete</button>
+                </div>
+            </div>
+            <button type="button" id="add-step-btn" class="secondary-btn">+ Add step</button>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" id="cancel-recipe-btn" class="secondary-btn">Cancel</button>
+            <button type="submit" class="btn">Save recipe</button>
+        </div>
     </form>
 </main>
 
