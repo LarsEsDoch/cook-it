@@ -35,10 +35,80 @@ function createDynamicField(inputClass, placeholder, required = false) {
     return row;
 }
 
+function createStepField() {
+    const row = document.createElement("div");
+    row.classList.add("dynamic-step-row");
+
+    const stepInput = document.createElement("input");
+    stepInput.type = "text";
+    stepInput.classList.add("step-input");
+    stepInput.required = true;
+    stepInput.placeholder = "e.g. Boil the pasta.";
+
+    const imageInput = document.createElement("input");
+    imageInput.type = "file";
+    imageInput.classList.add("step-image-input");
+    imageInput.accept = "image/*";
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.classList.add("remove-field-btn");
+    removeButton.textContent = "Delete";
+
+    removeButton.addEventListener("click", () => {
+        row.remove();
+    });
+
+    row.append(stepInput, imageInput, removeButton);
+
+    return row;
+}
+
 function getInputValues(selector) {
     return Array.from(document.querySelectorAll(selector))
         .map((input) => input.value.trim())
         .filter((value) => value !== "");
+}
+
+function getCheckedLabels() {
+    return Array.from(document.querySelectorAll('input[name="recipe-labels"]:checked'))
+        .map((checkbox) => checkbox.value);
+}
+
+function fileToBase64(file) {
+    return new Promise((resolve) => {
+        if (!file) {
+            resolve("");
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            resolve(reader.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+async function getPreparationSteps() {
+    const stepRows = Array.from(document.querySelectorAll(".dynamic-step-row"));
+
+    const steps = await Promise.all(
+        stepRows.map(async (row) => {
+            const text = row.querySelector(".step-input").value.trim();
+            const imageFile = row.querySelector(".step-image-input").files[0];
+            const image = await fileToBase64(imageFile);
+
+            return {
+                text,
+                image
+            };
+        })
+    );
+
+    return steps.filter((step) => step.text !== "");
 }
 
 function hasUnsavedChanges() {
@@ -48,6 +118,17 @@ function hasUnsavedChanges() {
 
     return Array.from(addRecipeForm.elements).some((element) => {
         const isEditableField = element.matches("input, textarea, select");
+        const isCheckbox = element.type === "checkbox";
+        const isFileInput = element.type === "file";
+
+        if (isCheckbox) {
+            return element.checked;
+        }
+
+        if (isFileInput) {
+            return element.files.length > 0;
+        }
+
         return isEditableField && element.value.trim() !== "";
     });
 }
@@ -74,21 +155,29 @@ if (addUtensilButton) {
 
 if (addStepButton) {
     addStepButton.addEventListener("click", () => {
-        stepsList.append(createDynamicField("step-input", "e.g. Boil the pasta.", true));
+        stepsList.append(createStepField());
     });
 }
 
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-field-btn")) {
-        const row = event.target.closest(".dynamic-field-row");
+        const row = event.target.closest(".dynamic-field-row, .dynamic-step-row");
         const list = event.target.closest(".dynamic-field-list");
 
         if (list.children.length > 1) {
             row.remove();
-        } else {
-            const input = row.querySelector("input");
-            input.value = "";
+            return;
         }
+
+        const inputs = row.querySelectorAll("input");
+
+        inputs.forEach((input) => {
+            if (input.type === "file") {
+                input.value = "";
+            } else {
+                input.value = "";
+            }
+        });
     }
 });
 
@@ -108,7 +197,7 @@ window.addEventListener("beforeunload", (event) => {
 });
 
 if (addRecipeForm) {
-    addRecipeForm.addEventListener("submit", (event) => {
+    addRecipeForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const author = document.getElementById("author").value.trim();
@@ -118,9 +207,26 @@ if (addRecipeForm) {
         const difficulty = document.getElementById("difficulty").value;
         const servings = Number(document.getElementById("servings").value);
 
+        const calories = Number(document.getElementById("calories").value) || 0;
+        const protein = Number(document.getElementById("protein").value) || 0;
+        const carbs = Number(document.getElementById("carbs").value) || 0;
+        const fat = Number(document.getElementById("fat").value) || 0;
+        const fiber = Number(document.getElementById("fiber").value) || 0;
+
+        const nutrition = {
+            calories,
+            protein,
+            carbs,
+            fat,
+            fiber
+        };
+
+        const labels = getCheckedLabels();
+        const generalNotes = document.getElementById("general-notes").value.trim();
+
         const ingredients = getInputValues(".ingredient-input");
         const utensils = getInputValues(".utensil-input");
-        const steps = getInputValues(".step-input");
+        const steps = await getPreparationSteps();
 
         const createdAt = new Date().toLocaleString("en-US", {
             dateStyle: "medium",
@@ -135,6 +241,9 @@ if (addRecipeForm) {
             time,
             difficulty,
             servings,
+            nutrition,
+            labels,
+            generalNotes,
             ingredients,
             utensils,
             steps,

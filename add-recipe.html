@@ -67,6 +67,86 @@
         <label for="servings">Servings</label>
         <input type="number" id="servings" min="1" required placeholder="e.g. 2">
 
+        <fieldset class="form-fieldset">
+            <legend>Nutrition facts</legend>
+
+            <div class="nutrition-grid">
+                <div>
+                    <label for="calories">Calories</label>
+                    <input type="number" id="calories" min="0" placeholder="e.g. 550">
+                </div>
+
+                <div>
+                    <label for="protein">Protein in g</label>
+                    <input type="number" id="protein" min="0" step="0.1" placeholder="e.g. 25">
+                </div>
+
+                <div>
+                    <label for="carbs">Carbs in g</label>
+                    <input type="number" id="carbs" min="0" step="0.1" placeholder="e.g. 60">
+                </div>
+
+                <div>
+                    <label for="fat">Fat in g</label>
+                    <input type="number" id="fat" min="0" step="0.1" placeholder="e.g. 18">
+                </div>
+
+                <div>
+                    <label for="fiber">Fiber in g</label>
+                    <input type="number" id="fiber" min="0" step="0.1" placeholder="e.g. 8">
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+            <legend>Recipe labels</legend>
+
+            <div class="label-checkbox-grid">
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Vegan">
+                    Vegan
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Vegetarian">
+                    Vegetarian
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Gluten-free">
+                    Gluten-free
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="High protein">
+                    High protein
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="High fiber">
+                    High fiber
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Low carb">
+                    Low carb
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Spicy">
+                    Spicy
+                </label>
+
+                <label>
+                    <input type="checkbox" name="recipe-labels" value="Quick meal">
+                    Quick meal
+                </label>
+            </div>
+        </fieldset>
+
+        <label for="general-notes">General notes</label>
+        <textarea id="general-notes" placeholder="Add important notes, allergens, storage tips or preparation advice."></textarea>
+
         <div class="dynamic-field-section">
             <label>Ingredients</label>
             <div id="ingredients-list" class="dynamic-field-list">
@@ -92,8 +172,9 @@
         <div class="dynamic-field-section">
             <label>Preparation steps</label>
             <div id="steps-list" class="dynamic-field-list">
-                <div class="dynamic-field-row">
+                <div class="dynamic-step-row">
                     <input type="text" class="step-input" required placeholder="e.g. Boil the pasta.">
+                    <input type="file" class="step-image-input" accept="image/*">
                     <button type="button" class="remove-field-btn">Delete</button>
                 </div>
             </div>
