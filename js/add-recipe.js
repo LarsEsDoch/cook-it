@@ -203,6 +203,8 @@ if (addRecipeForm) {
         const author = document.getElementById("author").value.trim();
         const title = document.getElementById("title").value.trim();
         const description = document.getElementById("description").value.trim();
+        const recipeImageFile = document.getElementById("recipe-image").files[0];
+        const recipeImage = await fileToBase64(recipeImageFile);
         const time = document.getElementById("time").value.trim();
         const difficulty = document.getElementById("difficulty").value;
         const servings = Number(document.getElementById("servings").value);
@@ -237,7 +239,7 @@ if (addRecipeForm) {
             id: `${title.toLowerCase().replaceAll(" ", "-")}-${Date.now()}`,
             title,
             description,
-            image: "recipe.png",
+            image: recipeImage || "img/recipe.png",
             time,
             difficulty,
             servings,
