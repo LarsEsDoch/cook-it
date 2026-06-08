@@ -5,35 +5,151 @@ const recipeId = params.get("id");
 
 const recipe = recipes.find((item) => item.id === recipeId);
 
-if (recipeDetail && recipe) {
-    recipeDetail.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.title}" class="recipe-detail-image">
+function renderLabels(labels) {
+    if (!labels || labels.length === 0) {
+        return "";
+    }
 
-            <h1>${recipe.title}</h1>
-            <p>${recipe.description}</p>
+    return `
+        <div class="recipe-labels">
+            ${labels.map((label) => `<span class="recipe-label">${label}</span>`).join("")}
+        </div>
+    `;
+}
 
-            <div class="recipe-meta">
-                <span>Time: ${recipe.time}</span>
-                <span>Difficulty: ${recipe.difficulty}</span>
-                <span>Servings: ${recipe.servings}</span>
+function renderNutrition(nutrition) {
+    if (!nutrition) {
+        return "";
+    }
+
+    const nutritionItems = [
+        { label: "Calories", value: nutrition.calories, unit: "kcal" },
+        { label: "Protein", value: nutrition.protein, unit: "g" },
+        { label: "Carbs", value: nutrition.carbs, unit: "g" },
+        { label: "Fat", value: nutrition.fat, unit: "g" },
+        { label: "Fiber", value: nutrition.fiber, unit: "g" }
+    ].filter((item) => item.value !== undefined && item.value !== null && item.value !== "");
+
+    if (nutritionItems.length === 0) {
+        return "";
+    }
+
+    return `
+        <section class="recipe-info-section">
+            <h2>Nutrition facts</h2>
+            <div class="nutrition-detail-grid">
+                ${nutritionItems.map((item) => `
+                    <div class="nutrition-detail-card">
+                        <span>${item.label}</span>
+                        <strong>${item.value} ${item.unit}</strong>
+                    </div>
+                `).join("")}
             </div>
+        </section>
+    `;
+}
 
-            ${
+function renderGeneralNotes(generalNotes) {
+    if (!generalNotes) {
+        return "";
+    }
+
+    return `
+        <section class="recipe-info-section">
+            <h2>General notes</h2>
+            <p class="general-notes">${generalNotes}</p>
+        </section>
+    `;
+}
+
+function renderUtensils(utensils) {
+    if (!utensils || utensils.length === 0) {
+        return "";
+    }
+
+    return `
+        <section class="recipe-info-section">
+            <h2>Utensils</h2>
+            <ul>
+                ${utensils.map((utensil) => `<li>${utensil}</li>`).join("")}
+            </ul>
+        </section>
+    `;
+}
+
+function renderIngredients(ingredients) {
+    if (!ingredients || ingredients.length === 0) {
+        return "";
+    }
+
+    return `
+        <section class="recipe-info-section">
+            <h2>Ingredients</h2>
+            <ul>
+                ${ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+            </ul>
+        </section>
+    `;
+}
+
+function renderPreparationSteps(steps) {
+    if (!steps || steps.length === 0) {
+        return "";
+    }
+
+    return `
+        <section class="recipe-info-section">
+            <h2>Preparation</h2>
+            <ol class="preparation-step-list">
+                ${steps.map((step) => {
+        const stepText = typeof step === "string" ? step : step.text;
+        const stepImage = typeof step === "string" ? "" : step.image;
+
+        return `
+                        <li class="preparation-step-item">
+                            <p>${stepText}</p>
+                            ${
+            stepImage
+                ? `<img src="${stepImage}" alt="Preparation step image" class="preparation-step-image">`
+                : ""
+        }
+                        </li>
+                    `;
+    }).join("")}
+            </ol>
+        </section>
+    `;
+}
+
+if (recipeDetail && recipe) {
+    document.title = `Cook it - ${recipe.title}`;
+
+    recipeDetail.innerHTML = `
+        <img src="${recipe.image}" alt="${recipe.title}" class="recipe-detail-image">
+
+        <h1>${recipe.title}</h1>
+        <p>${recipe.description}</p>
+
+        ${renderLabels(recipe.labels)}
+
+        <div class="recipe-meta">
+            <span>Time: ${recipe.time}</span>
+            <span>Difficulty: ${recipe.difficulty}</span>
+            <span>Servings: ${recipe.servings}</span>
+        </div>
+
+        ${
         recipe.author && recipe.createdAt
             ? `<p class="recipe-author">Added by ${recipe.author} on ${recipe.createdAt}</p>`
             : ""
     }
 
-            <h2>Ingredients</h2>
-            <ul>
-                ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
-            </ul>
-
-            <h2>Preparation</h2>
-            <ol>
-                ${recipe.steps.map((step) => `<li>${step}</li>`).join("")}
-            </ol>
-        `;
+        ${renderNutrition(recipe.nutrition)}
+        ${renderGeneralNotes(recipe.generalNotes)}
+        ${renderIngredients(recipe.ingredients)}
+        ${renderUtensils(recipe.utensils)}
+        ${renderPreparationSteps(recipe.steps)}
+    `;
 } else if (recipeDetail) {
     recipeDetail.innerHTML = `
         <h1>Recipe not found</h1>

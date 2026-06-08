@@ -470,6 +470,101 @@ nav .right {
     margin-bottom: 16px;
 }
 
+.recipe-info-section {
+    margin-top: 34px;
+}
+
+.recipe-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.recipe-label {
+    background-color: #e8f8e8;
+    color: rgb(0, 120, 0);
+    border: 1px solid rgba(0, 187, 0, 0.25);
+    border-radius: 999px;
+    padding: 7px 13px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nutrition-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.nutrition-detail-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.nutrition-detail-card span {
+    display: block;
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.nutrition-detail-card strong {
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.general-notes {
+    background-color: var(--accent-color);
+    border-left: 4px solid rgb(0, 187, 0);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 18px;
+    line-height: 1.6;
+}
+
+.preparation-step-list {
+    display: grid;
+    gap: 22px;
+}
+
+.preparation-step-item {
+    padding-left: 8px;
+}
+
+.preparation-step-item p {
+    margin-top: 0;
+}
+
+.preparation-step-image {
+    width: 100%;
+    max-width: 520px;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .nutrition-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .nutrition-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-label {
+        font-size: 13px;
+    }
+}
+
 .recipe-detail li {
     margin-bottom: 10px;
 }
