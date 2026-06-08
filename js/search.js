@@ -3,7 +3,7 @@ const staticPages = [
         id: "about-us.html",
         title: "About Us - Who we are",
         description: "Learn more about Cookit.de, our mission, and the team behind the recipes.",
-        content: "aw",
+        content: "Nothing here",
         isPage: true
     },
     {
