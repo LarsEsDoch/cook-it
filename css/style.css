@@ -44,6 +44,17 @@ nav .right {
     display: none;
 }
 
+#menu a.active {
+    color: rgb(0, 187, 0);
+    cursor: default;
+    pointer-events: none;
+}
+
+#menu a.active[href] {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
 .logo-link {
     display: flex;
     align-items: center;
