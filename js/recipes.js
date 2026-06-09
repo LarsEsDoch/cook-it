@@ -65,7 +65,24 @@ if (recipesList) {
     //console.log(recipes)
     //console.log(userRecipes)
 
-    recipes.forEach((recipe) => {
+    const isHomePage = window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("/");
+
+    const recipesToShow = isHomePage
+        ? [...recipes]
+            .sort((recipeA, recipeB) => {
+                const ratingA = getStoredRating(recipeA);
+                const ratingB = getStoredRating(recipeB);
+
+                if (ratingB.average !== ratingA.average) {
+                    return ratingB.average - ratingA.average;
+                }
+
+                return ratingB.count - ratingA.count;
+            })
+            .slice(0, 10)
+        : recipes;
+
+    recipesToShow.forEach((recipe) => {
         const recipeCard = document.createElement("article");
         recipeCard.classList.add("recipe-card");
 
