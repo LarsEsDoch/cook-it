@@ -61,10 +61,11 @@ function renderRatingSummary(recipe) {
 }
 
 if (recipesList) {
-    const userRecipes = JSON.parse(localStorage.getItem("userRecipes")) || [];
-    const allRecipes = [...recipes, ...userRecipes];
+    //const userRecipes = JSON.parse(localStorage.getItem("userRecipes")) || [];
+    //console.log(recipes)
+    //console.log(userRecipes)
 
-    allRecipes.forEach((recipe) => {
+    recipes.forEach((recipe) => {
         const recipeCard = document.createElement("article");
         recipeCard.classList.add("recipe-card");
 
