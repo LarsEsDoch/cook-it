@@ -446,6 +446,40 @@ nav .right {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
+.recipe-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+    color: #5a5148;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.rating-stars {
+    color: #f5b301;
+    font-size: 18px;
+}
+
+.rating-count {
+    color: #777777;
+    font-weight: normal;
+}
+
+.recipe-detail {
+    padding: 80px 8%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .recipe-card img {
     width: 100%;
     height: 300px;
@@ -453,7 +487,7 @@ nav .right {
 }
 
 .recipe-card-content {
-    padding: 24px;
+    padding: 6px 24px 24px;
 }
 
 .recipe-card-content h2 {
@@ -494,6 +528,79 @@ nav .right {
 .recipe-detail h2 {
     margin-top: 32px;
     margin-bottom: 16px;
+}
+
+.recipe-info-section {
+    margin-top: 34px;
+}
+
+.recipe-info-section h2 {
+    margin-top: 0;
+}
+
+.rating-section {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.rating-overview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+    color: #5a5148;
+}
+
+.rating-average {
+    color: #f5b301;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.interactive-stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.star-button {
+    background: none;
+    border: none;
+    color: #d7d7d7;
+    cursor: pointer;
+    font-size: 34px;
+    padding: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-button:hover,
+.star-button:hover ~ .star-button {
+    color: #d7d7d7;
+}
+
+.interactive-stars:hover .star-button {
+    color: #f5b301;
+}
+
+.interactive-stars .star-button:hover ~ .star-button {
+    color: #d7d7d7;
+}
+
+.star-button.active {
+    color: #f5b301;
+}
+
+.star-button:hover {
+    transform: scale(1.15);
+}
+
+.rating-message {
+    color: #666666;
+    margin: 0;
 }
 
 .recipe-info-section {

@@ -251,7 +251,11 @@ if (addRecipeForm) {
             steps,
             author,
             createdAt,
-            isUserRecipe: true
+            isUserRecipe: true,
+            rating: {
+                average: 0,
+                count: 0
+            }
         };
 
         const savedRecipes = JSON.parse(localStorage.getItem("userRecipes")) || [];
