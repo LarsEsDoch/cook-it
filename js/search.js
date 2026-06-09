@@ -74,12 +74,18 @@ const staticPages = [
 document.addEventListener("DOMContentLoaded", () => {
     const searchTitle = document.getElementById("search-title");
     const searchInput = document.getElementById("search");
+    const searchPageInput = document.getElementById("search-page-input");
 
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get("q");
 
     if (!searchQuery) {
         if (searchTitle) searchTitle.textContent = "No search term entered.";
+
+        if (searchPageInput) {
+            searchPageInput.focus();
+        }
+
         return;
     }
 
@@ -90,6 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (searchInput) {
         searchInput.value = cleanQuery;
+    }
+
+    if (searchPageInput) {
+        searchPageInput.value = cleanQuery;
     }
 
     const lowerQuery = cleanQuery.toLowerCase();

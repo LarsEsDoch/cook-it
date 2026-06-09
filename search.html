@@ -42,6 +42,20 @@
 
 <main>
     <section class="recipes-page">
+        <form action="search.html" method="GET" class="search-page-form">
+            <label for="search-page-input">Search recipes and pages</label>
+            <div class="search-page-input-row">
+                <input
+                        type="text"
+                        id="search-page-input"
+                        name="q"
+                        placeholder="Search for recipes, ingredients or pages..."
+                        class="search-page-input"
+                >
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </form>
+
         <h1 id="search-title">Search Results</h1>
 
         <div id="recipes-list" class="recipes-grid"></div>
