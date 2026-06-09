@@ -10,6 +10,10 @@
     --max-width: 800px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -406,7 +410,13 @@ nav .right {
 
 .recipes {
     min-height: 300px;
-    margin: 50px
+    margin: 50px;
+}
+
+.btn.recipes-list {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
 }
 
 .recipes-page {
