@@ -712,6 +712,66 @@ nav .right {
     margin-bottom: 10px;
 }
 
+.about-us-promo {
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.about-us-content {
+    background: linear-gradient(135deg, #ffffff, #f3eade);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.about-us-content h2 {
+    font-size: 34px;
+    margin: 0 0 16px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+.about-us-content h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: rgb(0, 187, 0);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+.about-us-content p {
+    max-width: 750px;
+    margin: 20px auto 32px;
+    color: #5a5148;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    .about-us-promo {
+        margin-bottom: 80px;
+    }
+
+    .about-us-content {
+        padding: 32px 22px;
+    }
+
+    .about-us-content h2 {
+        font-size: 28px;
+    }
+
+    .about-us-content p {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+}
+
 .search-page-form {
     max-width: 720px;
     margin: 0 auto 32px;
