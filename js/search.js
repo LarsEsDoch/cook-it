@@ -7,7 +7,7 @@ const staticPages = [
         isPage: true
     },
     {
-        id: "imprint.html",
+        id: "legal-notice.html",
         title: "Legal Notice (Imprint)",
         description: "Official legal disclosure, contact information, and operating details for Cookit.de.",
         content: "Legal Notice\n" +
