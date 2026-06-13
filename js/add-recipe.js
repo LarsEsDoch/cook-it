@@ -11,6 +11,18 @@ const stepsList = document.getElementById("steps-list");
 
 let recipeWasSaved = false;
 
+function renderCategoryCheckboxes() {
+    const container = document.getElementById("category-checkboxes");
+    if (!container || typeof categories === "undefined") return;
+
+    container.innerHTML = categories.map(cat => `
+        <label>
+            <input type="checkbox" name="recipe-categories" value="${cat.id}">
+            ${cat.icon} ${cat.title}
+        </label>
+    `).join("");
+}
+
 function createDynamicField(inputClass, placeholder, required = false) {
     const row = document.createElement("div");
     row.classList.add("dynamic-field-row");
@@ -72,6 +84,11 @@ function getInputValues(selector) {
 
 function getCheckedLabels() {
     return Array.from(document.querySelectorAll('input[name="recipe-labels"]:checked'))
+        .map((checkbox) => checkbox.value);
+}
+
+function getCheckedCategories() {
+    return Array.from(document.querySelectorAll('input[name="recipe-categories"]:checked'))
         .map((checkbox) => checkbox.value);
 }
 
@@ -141,6 +158,8 @@ function confirmLeavingPage() {
     return true;
 }
 
+renderCategoryCheckboxes();
+
 if (addIngredientButton) {
     addIngredientButton.addEventListener("click", () => {
         ingredientsList.append(createDynamicField("ingredient-input", "e.g. 200g pasta", true));
@@ -172,11 +191,7 @@ document.addEventListener("click", (event) => {
         const inputs = row.querySelectorAll("input");
 
         inputs.forEach((input) => {
-            if (input.type === "file") {
-                input.value = "";
-            } else {
-                input.value = "";
-            }
+            input.value = "";
         });
     }
 });
@@ -223,6 +238,7 @@ if (addRecipeForm) {
             fiber
         };
 
+        const recipeCategories = getCheckedCategories();
         const labels = getCheckedLabels();
         const generalNotes = document.getElementById("general-notes").value.trim();
 
@@ -244,6 +260,7 @@ if (addRecipeForm) {
             difficulty,
             servings,
             nutrition,
+            categories: recipeCategories,
             labels,
             generalNotes,
             ingredients,
