@@ -140,6 +140,20 @@ function activateRatingButtons() {
     });
 }
 
+function renderCategories(recipe) {
+    if (!recipe.categories || recipe.categories.length === 0 || typeof categories === "undefined") {
+        return "";
+    }
+
+    const links = recipe.categories.map(catId => {
+        const cat = categories.find(c => c.id === catId);
+        if (!cat) return "";
+        return `<a href="categories.html?category=${catId}" class="recipe-category-link">${cat.icon} ${cat.title}</a>`;
+    }).join("");
+
+    return `<div class="recipe-category-links">${links}</div>`;
+}
+
 function renderLabels(labels) {
     if (!labels || labels.length === 0) {
         return "";
@@ -265,6 +279,7 @@ if (recipeDetail && recipe) {
         <h1>${recipe.title}</h1>
         <p>${recipe.description}</p>
 
+        ${renderCategories(recipe)}
         ${renderLabels(recipe.labels)}
 
         <div class="recipe-meta">
