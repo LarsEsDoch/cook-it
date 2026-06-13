@@ -7,6 +7,7 @@ const recipes = [
         time: "25 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["main-dishes", "pasta-noodles", "vegetarian", "quick-meals", "easy"],
         ingredients: [
             "200 g pasta",
             "250 g tomatoes",
@@ -31,6 +32,7 @@ const recipes = [
         time: "10 min",
         difficulty: "Easy",
         servings: 1,
+        categories: ["salads", "vegetarian", "vegan", "quick-meals", "easy"],
         ingredients: [
             "Lettuce",
             "Tomatoes",
@@ -54,6 +56,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["main-dishes", "vegetarian", "vegan", "quick-meals", "vegetables"],
         ingredients: [
             "150 g bell peppers",
             "100 g broccoli florets",
@@ -78,6 +81,7 @@ const recipes = [
         time: "40 min",
         difficulty: "Medium",
         servings: 2,
+        categories: ["main-dishes", "vegetarian", "rice-potatoes", "comfort-food"],
         ingredients: [
             "150 g Arborio rice",
             "200 g mushrooms (sliced)",
@@ -102,6 +106,7 @@ const recipes = [
         time: "10 min",
         difficulty: "Easy",
         servings: 1,
+        categories: ["breakfast-brunch", "vegetarian", "quick-meals", "easy"],
         ingredients: [
             "2 slices of whole-grain bread",
             "1 ripe avocado",
@@ -125,6 +130,7 @@ const recipes = [
         time: "15 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["breakfast-brunch", "baking", "vegetarian", "easy"],
         ingredients: [
             "150 g all-purpose flour",
             "1 tbsp sugar",
@@ -149,6 +155,7 @@ const recipes = [
         time: "60 min",
         difficulty: "Medium",
         servings: 8,
+        categories: ["baking", "vegetarian", "comfort-food"],
         ingredients: [
             "3 ripe bananas",
             "75 g melted butter",
@@ -176,6 +183,7 @@ const recipes = [
         time: "35 min",
         difficulty: "Medium",
         servings: 3,
+        categories: ["main-dishes", "poultry-meat", "comfort-food"],
         ingredients: [
             "400 g chicken breast (cubed)",
             "1 can (400 ml) coconut milk",
@@ -203,6 +211,7 @@ const recipes = [
         time: "15 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["main-dishes", "fish-seafood", "quick-meals", "high-protein"],
         ingredients: [
             "300 g shrimp (peeled and deveined)",
             "4 garlic cloves (finely minced)",
@@ -227,6 +236,7 @@ const recipes = [
         time: "45 min",
         difficulty: "Easy",
         servings: 4,
+        categories: ["soups-stews", "vegetarian", "vegan", "meal-prep", "high-protein"],
         ingredients: [
             "200 g brown lentils (rinsed)",
             "1 large onion (chopped)",
@@ -254,6 +264,7 @@ const recipes = [
         time: "10 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["salads", "vegetarian", "quick-meals", "easy"],
         ingredients: [
             "200 g cherry tomatoes (halved)",
             "1 cucumber (diced)",
@@ -281,6 +292,7 @@ const recipes = [
         time: "30 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["breakfast-brunch", "main-dishes", "vegetarian", "easy"],
         ingredients: [
             "4 eggs",
             "1 can (400 g) crushed tomatoes",
@@ -310,6 +322,7 @@ const recipes = [
         time: "25 min",
         difficulty: "Easy",
         servings: 3,
+        categories: ["main-dishes", "poultry-meat", "quick-meals"],
         ingredients: [
             "400 g ground beef",
             "6 small corn or flour tortillas",
@@ -337,6 +350,7 @@ const recipes = [
         time: "45 min",
         difficulty: "Easy",
         servings: 4,
+        categories: ["soups-stews", "vegetarian", "vegan", "seasonal", "comfort-food"],
         ingredients: [
             "800 g pumpkin (peeled and diced)",
             "1 onion (chopped)",
@@ -364,6 +378,7 @@ const recipes = [
         time: "5 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["salads", "starters-snacks", "vegetarian", "quick-meals", "easy"],
         ingredients: [
             "2 large ripe tomatoes",
             "200 g fresh mozzarella",
@@ -388,6 +403,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["main-dishes", "rice-potatoes", "quick-meals", "easy", "one-pot"],
         ingredients: [
             "300 g cooked rice (day-old works best)",
             "2 eggs",
@@ -415,6 +431,7 @@ const recipes = [
         time: "10 min",
         difficulty: "Medium",
         servings: 1,
+        categories: ["breakfast-brunch", "vegetarian", "quick-meals", "high-protein"],
         ingredients: [
             "3 fresh eggs",
             "1 tbsp cold butter",
@@ -437,6 +454,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["main-dishes", "pasta-noodles", "vegetarian", "quick-meals", "easy"],
         ingredients: [
             "200 g spaghetti",
             "5 garlic cloves (thinly sliced)",
@@ -462,6 +480,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Medium",
         servings: 4,
+        categories: ["desserts", "vegetarian"],
         ingredients: [
             "150 g dark chocolate (70%)",
             "3 eggs (separated)",
@@ -485,6 +504,7 @@ const recipes = [
         time: "50 min",
         difficulty: "Medium",
         servings: 4,
+        categories: ["main-dishes", "poultry-meat", "comfort-food", "high-protein"],
         ingredients: [
             "600 g chicken thighs (cubed)",
             "1 can (400 g) crushed tomatoes",
@@ -515,6 +535,7 @@ const recipes = [
         time: "20 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["salads", "easy"],
         ingredients: [
             "1 romaine lettuce (torn)",
             "40 g Parmesan (shaved)",
@@ -542,6 +563,7 @@ const recipes = [
         time: "15 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["breakfast-brunch", "vegetarian", "easy"],
         ingredients: [
             "4 thick slices of brioche or white bread",
             "2 eggs",
@@ -567,6 +589,7 @@ const recipes = [
         time: "50 min",
         difficulty: "Easy",
         servings: 4,
+        categories: ["soups-stews", "vegetarian", "vegan", "comfort-food", "one-pot", "meal-prep"],
         ingredients: [
             "1 can (400 g) cannellini beans (drained)",
             "1 can (400 g) diced tomatoes",
@@ -597,6 +620,7 @@ const recipes = [
         time: "5 min",
         difficulty: "Easy",
         servings: 2,
+        categories: ["drinks", "vegetarian", "vegan", "quick-meals", "easy"],
         ingredients: [
             "300 g frozen mango chunks",
             "1 ripe banana",
@@ -620,6 +644,7 @@ const recipes = [
         time: "60 min",
         difficulty: "Medium",
         servings: 6,
+        categories: ["main-dishes", "vegetarian", "baking", "high-protein"],
         ingredients: [
             "1 pre-made shortcrust pastry sheet",
             "200 g fresh spinach",
