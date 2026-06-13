@@ -1,14 +1,33 @@
 const staticPages = [
     {
         id: "about-us.html",
-        title: "About Us - Who we are",
+        title: "About Us",
         description: "Learn more about Cookit.de, our mission, and the team behind the recipes.",
-        content: "Nothing here",
+        content: "About us\n" +
+            "Cookit.de started with a simple problem and a shared passion: two friends who loved cooking, trying new recipes, and preparing meals together, but who slowly realized that finding and sharing recipes was becoming more complicated than it needed to be.\n" +
+            "\n" +
+            "What began as a hobby in the kitchen soon became the idea for a place where recipes could be saved, shared, and discovered more easily." +
+            "How it all started\n" +
+            "The idea for Cookit.de came from two boys who both enjoyed cooking in their free time. They loved testing new dishes, improving old family recipes, and surprising friends with homemade food. But every time they wanted to cook together, the same problem appeared: the recipes were everywhere.\n" +
+            "\n" +
+            "Some were hidden in old cookbooks, others were written on loose pieces of paper, and many were saved as pictures on their phones. Before meeting up, they often had to send each other photos of cookbook pages, screenshots, ingredient lists, or notes from previous cooking sessions. It worked, but it was messy, confusing, and easy to lose track of." +
+            "The problem with too many cookbooks\n" +
+            "Over time, their collection of cookbooks grew bigger and bigger. While that sounds great for people who love cooking, it also made recipe planning harder. Finding one specific recipe could take longer than actually preparing the meal. If one of them had a good recipe at home, the other one could not easily access it.\n" +
+            "\n" +
+            "They wanted a better solution: one place where they could collect their favorite recipes, organize them, and quickly share them before cooking together." +
+            "The idea behind Cookit.de\n" +
+            "That is how Cookit.de was born. Instead of sending photos back and forth, they decided to create a website where recipes could be added, saved, searched, and shared. The goal was not only to make cooking easier for themselves, but also to build a platform that other people could use too.\n" +
+            "\n" +
+            "Cookit.de is meant to be a digital recipe collection for everyone: simple enough for everyday cooking, useful enough for planning meals, and open enough to discover new ideas from others." +
+            "What Cookit.de stands for\n" +
+            "We believe that good food should be easy to share. A recipe is more than just a list of ingredients — it is a memory, an idea, and sometimes even a tradition. With Cookit.de, we want to make it easier to keep those recipes in one place and make them available whenever they are needed.\n" +
+            "\n" +
+            "Whether you are looking for inspiration, saving your favorite meals, or adding your own recipe, Cookit.de is built to help you enjoy cooking without the chaos of scattered notes, screenshots, and cookbook pages.",
         isPage: true
     },
     {
-        id: "legal-notice.html",
-        title: "Legal Notice (Imprint)",
+        id: "../legal/legal-notice.html",
+        title: "Legal Notice",
         description: "Official legal disclosure, contact information, and operating details for Cookit.de.",
         content: "Legal Notice\n" +
             "Information according to § 5 TMG (German Telemedia Act)\n" +
@@ -37,7 +56,7 @@ const staticPages = [
         isPage: true
     },
     {
-        id: "privacy-policy.html",
+        id: "../legal/privacy-policy.html",
         title: "Privacy Policy",
         description: "Information on data protection, cookies, and your rights on our platform.",
         content: "Privacy Policy\n" +
@@ -67,6 +86,108 @@ const staticPages = [
             "\n" +
             "5. Your Rights Regarding Your Data\n" +
             "You have the right to request information about your stored personal data, its origin, its recipients, and the purpose of its collection at no charge. You also have the right to request that it be corrected, blocked, or deleted. If you have created an account and uploaded recipes, you can request the deletion of your account and all associated user generated content at any time. For this, or if you have any other questions about privacy, you can contact us at the email address provided above.",
+        isPage: true
+    },
+    {
+        id: "../legal/terms-of-service.html",
+        title: "Terms of Service",
+        description: "Legal agreement outlining the rules, user responsibilities, and conditions you must agree to in order to use our platform and services.",
+        content: "Terms of Service\n" +
+            "Last updated: June 2026\n" +
+            "\n" +
+            "1. Acceptance of Terms\n" +
+            "Welcome to Cookit.de. By accessing or using our website and services, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform.\n" +
+            "\n" +
+            "2. User Accounts\n" +
+            "To use certain interactive features, such as adding recipes or creating a custom digital cookbook, you may need to register an account. You are responsible for keeping your login credentials confidential and for all activities that occur under your account. We reserve the right to suspend or terminate accounts that violate these terms.\n" +
+            "\n" +
+            "3. User-Generated Content & Content Ownership\n" +
+            "When you upload or submit recipes, text, ingredient lists, instructions, or images to Cookit.de, you retain ownership of your content. However, by uploading content, you grant Cookit.de a worldwide, non-exclusive, royalty-free, transferable license to display, host, distribute, and reproduce that content publicly on our platform.\n" +
+            "\n" +
+            "You agree that you will not upload any content that:\n" +
+            "\n" +
+            "Infringes on the intellectual property or copyrights of others (e.g., copying images or text without permission).\n" +
+            "Contains inappropriate, offensive, or harmful material.\n" +
+            "Contains spam or misleading information.\n" +
+            "4. Limitation of Liability\n" +
+            "The content provided on Cookit.de, including recipes, tips, and nutritional values, is for general information and entertainment purposes only. While we encourage creativity, we cannot guarantee the accuracy, completeness, safety, or success of any recipe posted by users. Cooking involves inherent risks (such as allergies, heat, and sharp objects), and you follow all recipes at your own risk.\n" +
+            "\n" +
+            "5. Notice regarding Business Operations\n" +
+            "Important Notice: Cookit.de is a non-commercial, community-driven programming project currently in active development. All services are provided free of charge, \"as is\", and without any warranties.\n" +
+            "6. Changes to Terms\n" +
+            "We reserve the right to modify these Terms of Service at any time. Changes will become effective immediately upon being posted on this page. Your continued use of the website after modifications are published constitutes your acceptance of the updated terms.\n" +
+            "\n" +
+            "7. Contact\n" +
+            "If you have any questions or feedback regarding these Terms of Service, please contact us at the email address provided in our Legal Notice.",
+        isPage: true
+    },
+    {
+        id: "help.html",
+        title: "Help",
+        description: "Comprehensive guides, troubleshooting tips, and answers to frequently asked questions to assist you on Cookit.de.",
+        content: "Help\n" +
+            "Welcome to Cookit.de! This help page explains how to use the most important features of our recipe website. Whether you want to find a quick dinner idea, save your favorite meals, or share your own recipe, you can use the guide below to get started.\n" +
+            "\n" +
+            "Finding Recipes\n" +
+            "Use the search bar at the top of the page to look for recipes by name, ingredient, or keyword. You can also browse the recipes page to discover all available dishes or visit the categories page to find meals that fit a specific type of cooking.\n" +
+            "\n" +
+            "Using Categories\n" +
+            "Categories help you quickly narrow down your choices. If you are looking for breakfast, lunch, dinner, desserts, vegetarian meals, or other recipe types, the category overview is the best place to start.\n" +
+            "\n" +
+            "Saving Favorites\n" +
+            "When you find a recipe you like, add it to your favorites so you can easily find it again later. Your favorites page keeps your saved recipes in one convenient place.\n" +
+            "\n" +
+            "Adding Your Own Recipe\n" +
+            "Want to share something delicious? Open the add recipe page and enter the recipe name, ingredients, preparation steps, and other helpful details. Clear instructions make it easier for others to cook your dish.\n" +
+            "\n" +
+            "Need More Help?\n" +
+            "If something does not work as expected, try refreshing the page, checking your search terms, or returning to the home page and navigating again. Cookit.de is designed to be simple, friendly, and easy to use.",
+        isPage: true
+    },
+    {
+        id: "tips-and-tricks.html",
+        title: "Tips & Tricks",
+        description: "Practical advice, clever kitchen hacks, and useful guidelines to help you get the most out of your cooking experience.",
+        content: "Tips & Tricks\n" +
+            "Small kitchen habits can make cooking easier, faster, and more enjoyable. Use these practical tips to improve your preparation, save time, and get better results from your favorite recipes.\n" +
+            "\n" +
+            "Prepare Before You Start\n" +
+            "Read the full recipe before cooking and gather all ingredients first. Washing, chopping, and measuring everything in advance helps you stay relaxed and prevents mistakes while the food is cooking.\n" +
+            "\n" +
+            "Keep Your Knives Sharp\n" +
+            "A sharp knife is safer and easier to control than a dull one. It helps you cut ingredients more evenly, which also helps them cook at the same speed.\n" +
+            "\n" +
+            "Season Step by Step\n" +
+            "Add seasoning gradually while cooking instead of only at the end. Taste your food as you go, then adjust salt, pepper, herbs, or spices until the flavor feels balanced.\n" +
+            "\n" +
+            "Save Time with Smart Storage\n" +
+            "Store frequently used ingredients where you can reach them easily. Keep dry goods in labeled containers and place older ingredients toward the front so they are used before newer ones.\n" +
+            "\n" +
+            "Use Leftovers Creatively\n" +
+            "Leftovers can become new meals. Roasted vegetables can go into wraps, rice bowls, soups, or omelets. Cooked pasta can be turned into a quick salad or baked dish the next day.\n" +
+            "\n" +
+            "Clean as You Cook\n" +
+            "Wipe surfaces, rinse tools, and put ingredients away while waiting for food to cook. This keeps your kitchen organized and makes cleanup much easier after the meal.",
+        isPage: true
+    },
+    {
+        id: "../recipes/add-recipe.html",
+        title: "Add your own recipe",
+        description: "Create and share your personal culinary creations by adding ingredients, steps, and photos to Cookit.de.",
+        content: "Add your own recipe\n" +
+            "Enter your recipe, digitize ingredients and preparation steps, and save it directly to your recipe collection. Fill out the recipe title, add a short description, and choose an overview main recipe image.\n" +
+            "\n" +
+            "Recipe Details\n" +
+            "Specify the preparation time, choose the difficulty level (Easy, Medium, or Hard), and enter the number of servings.\n" +
+            "\n" +
+            "Nutrition Facts\n" +
+            "Track health metrics by adding nutritional values per serving, including calories, protein in g, carbs in g, fat in g, and fiber in g.\n" +
+            "\n" +
+            "Recipe Labels and Tags\n" +
+            "Categorize your dish using labels: Vegan, Vegetarian, Gluten-free, High protein, High fiber, Low carb, Spicy, or Quick meal.\n" +
+            "\n" +
+            "Ingredients, Utensils, and Steps\n" +
+            "List all necessary ingredients and required kitchen utensils. Break down the preparation steps into clear, sequential instructions. Add general notes for extra kitchen hacks, then save your recipe directly to Cookit.de.",
         isPage: true
     }
 ];
