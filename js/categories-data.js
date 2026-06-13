@@ -14,12 +14,20 @@ const categories = [
     { id: "low-carb", title: "Low Carb", icon: "🏃", description: "Low in carbohydrates", group: "diet", groupLabel: "Diet & Lifestyle" },
     { id: "high-protein", title: "High Protein", icon: "💪", description: "Protein-packed for fitness", group: "diet", groupLabel: "Diet & Lifestyle" },
     { id: "gluten-free", title: "Gluten Free", icon: "🌾", description: "Safe for gluten intolerances", group: "diet", groupLabel: "Diet & Lifestyle" },
+    { id: "dairy-free", title: "Dairy-Free", icon: "🥛", description: "Lactose-free and dairy-free options", group: "diet", groupLabel: "Diet & Lifestyle" },
+    { id: "nut-free", title: "Nut-Free", icon: "🥜", description: "Safe recipes without nuts", group: "diet", groupLabel: "Diet & Lifestyle" },
+    { id: "keto", title: "Keto", icon: "🥑", description: "High fat, extremely low carb", group: "diet", groupLabel: "Diet & Lifestyle" },
+
+    { id: "air-fryer", title: "Air Fryer", icon: "🌬️", description: "Crispy results with less oil", group: "equipment", groupLabel: "Equipment & Methods" },
+    { id: "slow-cooker", title: "Slow Cooker", icon: "🍲", description: "Low and slow cooking", group: "equipment", groupLabel: "Equipment & Methods" },
+    { id: "no-cook", title: "No-Cook", icon: "🧊", description: "Raw meals and hot summer days", group: "equipment", groupLabel: "Equipment & Methods" },
 
     { id: "quick-meals", title: "Quick Meals", icon: "⚡", description: "Ready in under 30 minutes", group: "time", groupLabel: "Time & Effort" },
     { id: "one-pot", title: "One-Pot", icon: "🥘", description: "Everything in one pot or pan", group: "time", groupLabel: "Time & Effort" },
     { id: "meal-prep", title: "Meal Prep", icon: "📦", description: "Perfect for preparing ahead", group: "time", groupLabel: "Time & Effort" },
     { id: "easy", title: "Easy Recipes", icon: "👍", description: "Few ingredients, simple steps", group: "time", groupLabel: "Time & Effort" },
 
+    { id: "classics", title: "Classics", icon: "👵", description: "Timeless traditional and heritage recipes", group: "occasion", groupLabel: "Occasion & Season" },
     { id: "seasonal", title: "Seasonal", icon: "🍂", description: "Best with fresh, in-season produce", group: "occasion", groupLabel: "Occasion & Season" },
     { id: "grilling-bbq", title: "Grilling & BBQ", icon: "🔥", description: "Summer favorites and marinades", group: "occasion", groupLabel: "Occasion & Season" },
     { id: "festivities", title: "Festivities", icon: "🎉", description: "Christmas, Easter, birthday food", group: "occasion", groupLabel: "Occasion & Season" },
@@ -37,7 +45,13 @@ const categories = [
     { id: "asian", title: "Asian", icon: "🍜", description: "Curries, stir-fries, and sushi", group: "cuisine", groupLabel: "Cuisine" },
     { id: "german", title: "German", icon: "🥨", description: "Traditional and hearty meals", group: "cuisine", groupLabel: "Cuisine" },
     { id: "mexican", title: "Mexican", icon: "🌮", description: "Tacos, burritos, and spicy flavors", group: "cuisine", groupLabel: "Cuisine" },
+    { id: "mediterranean", title: "Mediterranean", icon: "🫒", description: "Olive oil, fresh veggies, and seafood", group: "cuisine", groupLabel: "Cuisine" },
+    { id: "indian", title: "Indian", icon: "🍛", description: "Rich curries and vibrant spices", group: "cuisine", groupLabel: "Cuisine" },
+    { id: "middle-eastern", title: "Middle Eastern", icon: "🧆", description: "Falafel, hummus, and mezze", group: "cuisine", groupLabel: "Cuisine" },
+    { id: "american", title: "American", icon: "🍔", description: "Burgers, BBQ, and diner classics", group: "cuisine", groupLabel: "Cuisine" },
 
     { id: "budget-friendly", title: "Budget-Friendly", icon: "🪙", description: "Delicious meals that save money", group: "planning", groupLabel: "Planning & Budget" },
-    { id: "family-friendly", title: "Family Friendly", icon: "👨‍👩‍👧‍👦", description: "Meals that kids will actually eat", group: "planning", groupLabel: "Planning & Budget" }
+    { id: "family-friendly", title: "Family Friendly", icon: "👨‍👩‍👧‍👦", description: "Meals that kids will actually eat", group: "planning", groupLabel: "Planning & Budget" },
+    { id: "leftovers", title: "Leftovers & Zero Waste", icon: "♻️", description: "Turn yesterday's meals into something new", group: "planning", groupLabel: "Planning & Budget" },
+    { id: "to-go", title: "To-Go & Lunchbox", icon: "🍱", description: "Perfect for office lunches and picnics", group: "planning", groupLabel: "Planning & Budget" }
 ];
