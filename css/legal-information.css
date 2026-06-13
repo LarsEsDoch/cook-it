@@ -4,7 +4,7 @@ main {
     padding: 0 20px;
 }
 
-.imprint-container {
+.legals-container {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 8px;
@@ -12,7 +12,7 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-.imprint-container h1 {
+.legals-container h1 {
     font-size: 1.8rem;
     margin-top: 0;
     margin-bottom: 25px;
@@ -20,14 +20,14 @@ main {
     border-bottom: 2px solid var(--primary-color);
 }
 
-.imprint-container h2 {
+.legals-container h2 {
     font-size: 1.2rem;
     color: var(--primary-color);
     margin-top: 30px;
     margin-bottom: 12px;
 }
 
-.imprint-container p {
+.legals-container p {
     margin: 0 0 15px 0;
     color: #4a3f35;
 }
