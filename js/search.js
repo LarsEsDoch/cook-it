@@ -192,55 +192,81 @@ const staticPages = [
     }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+let selectedCategories = new Set();
+
+function renderCategoryChips() {
+    const container = document.getElementById("category-cards");
+    if (!container || typeof categories === "undefined") return;
+
+    const nonEmpty = categories.filter(cat => {
+        const count = typeof recipes !== "undefined"
+            ? recipes.filter(r => r.categories && r.categories.includes(cat.id)).length
+            : 0;
+        return count > 0;
+    });
+
+    container.innerHTML = nonEmpty.map(cat => {
+        const isActive = selectedCategories.has(cat.id);
+        return `<button class="category-chip${isActive ? " active" : ""}" data-cat="${cat.id}">${cat.icon} ${cat.title}</button>`;
+    }).join("");
+
+    container.querySelectorAll(".category-chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+            const id = chip.dataset.cat;
+            selectedCategories.has(id) ? selectedCategories.delete(id) : selectedCategories.add(id);
+            renderCategoryChips();
+            renderAndFilter();
+        });
+    });
+}
+
+function updateSearchTitle(searchQuery, hasCategories) {
     const searchTitle = document.getElementById("search-title");
-    const searchInput = document.getElementById("search");
-    const searchPageInput = document.getElementById("search-page-input");
+    if (!searchTitle) return;
 
+    if (searchQuery && hasCategories) {
+        searchTitle.textContent = `Results for: "${searchQuery}" (filtered by category)`;
+    } else if (searchQuery) {
+        searchTitle.textContent = `Search results for: "${searchQuery}"`;
+    } else if (hasCategories) {
+        searchTitle.textContent = "Recipes in selected categories";
+    } else {
+        searchTitle.textContent = "No search term entered.";
+    }
+}
+
+function renderAndFilter() {
     const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get("q");
+    const searchQuery = (urlParams.get("q") || "").trim();
+    const lowerQuery = searchQuery.toLowerCase();
+    const hasCategories = selectedCategories.size > 0;
 
-    if (!searchQuery) {
-        if (searchTitle) searchTitle.textContent = "No search term entered.";
+    updateSearchTitle(searchQuery, hasCategories);
 
-        if (searchPageInput) {
-            searchPageInput.focus();
-        }
-
+    if (!searchQuery && !hasCategories) {
+        const recipesList = document.getElementById("recipes-list");
+        if (recipesList) recipesList.innerHTML = "";
         return;
     }
 
-    const cleanQuery = searchQuery.trim();
-    if (searchTitle) {
-        searchTitle.textContent = `Search results for: "${cleanQuery}"`;
-    }
+    const allRecipes = typeof recipes !== "undefined" ? recipes : [];
+    const allContent = [...allRecipes, ...staticPages];
 
-    if (searchInput) {
-        searchInput.value = cleanQuery;
-    }
+    const results = allContent.filter(item => {
+        const textMatch = !lowerQuery ||
+            item.title.toLowerCase().includes(lowerQuery) ||
+            (item.description && item.description.toLowerCase().includes(lowerQuery)) ||
+            (item.content && item.content.toLowerCase().includes(lowerQuery)) ||
+            (item.ingredients && item.ingredients.some(ing => ing.toLowerCase().includes(lowerQuery)));
 
-    if (searchPageInput) {
-        searchPageInput.value = cleanQuery;
-    }
+        const catMatch = !hasCategories ||
+            (!item.isPage && item.categories && item.categories.some(c => selectedCategories.has(c)));
 
-    const lowerQuery = cleanQuery.toLowerCase();
-
-    const allRecipes = typeof recipes !== 'undefined' ? recipes : [];
-
-    const allSearchableContent = [...allRecipes, ...staticPages];
-
-    const filteredResults = allSearchableContent.filter(item => {
-        const titleMatch = item.title.toLowerCase().includes(lowerQuery);
-        const contentMatch = item.content && item.content.toLowerCase().includes(lowerQuery);
-        const descriptionMatch = item.description.toLowerCase().includes(lowerQuery);
-
-        const ingredientsMatch = item.ingredients && item.ingredients.some(ing => ing.toLowerCase().includes(lowerQuery));
-
-        return titleMatch || descriptionMatch || contentMatch || ingredientsMatch;
+        return textMatch && catMatch;
     });
 
-    renderSearchResults(filteredResults);
-});
+    renderSearchResults(results);
+}
 
 function renderSearchResults(resultsToRender) {
     const recipesList = document.getElementById("recipes-list");
@@ -256,7 +282,7 @@ function renderSearchResults(resultsToRender) {
         const card = document.createElement("article");
         card.classList.add("recipe-card");
 
-        const targetUrl = item.isPage ? item.id : `recipe-detail.html?id=${item.id}`;
+        const targetUrl = item.isPage ? item.id : `../recipes/recipe-detail.html?id=${item.id}`;
         const buttonText = item.isPage ? "Open Page" : "View recipe";
 
         card.innerHTML = `
@@ -267,17 +293,14 @@ function renderSearchResults(resultsToRender) {
                     <span>ℹ️ Info Page</span>
                 </div>
             `}
-            
             <div class="recipe-card-content">
                 <h2>${item.title}</h2>
                 <p>${item.description}</p>
-                
                 ${!item.isPage ? `
                 <div class="recipe-meta">
                     <span>${item.time}</span>
                     <span>${item.difficulty}</span>
-                </div>` : ''}
-                
+                </div>` : ""}
                 <a href="${targetUrl}" class="btn">${buttonText}</a>
             </div>
         `;
