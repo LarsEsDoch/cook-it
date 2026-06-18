@@ -323,6 +323,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const cleanQuery = searchQuery.trim();
+
+    const matchedCategory = typeof categories !== "undefined"
+        ? categories.find(cat => {
+            const title = cat.title.toLowerCase();
+            const query = cleanQuery.toLowerCase();
+            return title === query || title.includes(query);
+        })
+        : null;
+
+    if (matchedCategory) {
+        selectedCategories.add(matchedCategory.id);
+
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete("q");
+        history.replaceState({}, "", cleanUrl.toString());
+
+        if (searchInput) searchInput.value = "";
+        if (searchPageInput) searchPageInput.value = "";
+
+        renderCategoryChips();
+        renderAndFilter();
+        return;
+    }
+
     if (searchInput) searchInput.value = cleanQuery;
     if (searchPageInput) searchPageInput.value = cleanQuery;
 
