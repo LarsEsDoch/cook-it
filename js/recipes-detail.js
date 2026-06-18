@@ -304,6 +304,81 @@ function saveComment(recipeId, username, commentText) {
     return newComment;
 }
 
+function renderCommentsSection(recipe) {
+    const comments = getStoredComments(recipe.id);
+
+    return `
+        <section class="recipe-info-section comments-section">
+            <h2>Add Comment</h2>
+            <form id="comment-form" class="comment-form">
+                <div class="comment-input-group">
+                    <label for="comment-username">Your Name</label>
+                    <input type="text" id="comment-username" placeholder="Anonymous" class="comment-name-input">
+                </div>
+                <div class="comment-input-group">
+                    <label for="comment-text">Your Comment</label>
+                    <textarea id="comment-text" rows="3" placeholder="How did you like the recipe? Any tweaks?" required class="comment-textarea"></textarea>
+                </div>
+                <button type="submit" class="btn">Post Comment</button>
+            </form>
+            
+            <h2>Comments (${comments.length})</h2>
+            <div class="comments-list" id="comments-list">
+                ${comments.length === 0
+        ? `<p class="no-comments">No comments yet. Be the first to share your thoughts!</p>`
+        : comments.map(comment => `
+                        <article class="comment-card">
+                            <div class="comment-header">
+                                <span class="comment-author">${comment.user}</span>
+                                <time class="comment-date">${comment.date}</time>
+                            </div>
+                            <p class="comment-content">${comment.text}</p>
+                        </article>
+                    `).join("")
+    }
+            </div>
+        </section>
+    `;
+}
+
+function activateCommentButton() {
+    const commentForm = document.getElementById("comment-form");
+    if (commentForm) {
+        commentForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById("comment-username");
+            const textInput = document.getElementById("comment-text");
+
+            saveComment(recipe.id, nameInput.value, textInput.value);
+
+            const commentsList = document.getElementById("comments-list");
+            const currentComments = getStoredComments(recipe.id);
+
+            if (commentsList) {
+                commentsList.innerHTML = currentComments.length === 0
+                    ? `<p class="no-comments">No comments yet. Be the first to share your thoughts!</p>`
+                    : currentComments.map(comment => `
+                        <article class="comment-card">
+                            <div class="comment-header">
+                                <span class="comment-author"> ${comment.user}</span>
+                                <time class="comment-date">${comment.date}</time>
+                            </div>
+                            <p class="comment-content">${comment.text}</p>
+                        </article>
+                    `).join("");
+            }
+
+            const heading = document.querySelector(".comments-section h2");
+            if (heading) {
+                heading.textContent = `Comments (${currentComments.length})`;
+            }
+
+            textInput.value = "";
+        });
+    }
+}
+
 if (recipeDetail && recipe) {
     document.title = `Cook it - ${recipe.title}`;
 
@@ -333,9 +408,11 @@ if (recipeDetail && recipe) {
         ${renderIngredients(recipe.ingredients)}
         ${renderUtensils(recipe.utensils)}
         ${renderPreparationSteps(recipe.steps)}
+        ${renderCommentsSection(recipe)}
     `;
 
     activateRatingButtons();
+    activateCommentButton();
 } else if (recipeDetail) {
     recipeDetail.innerHTML = `
         <h1>Recipe not found</h1>
