@@ -307,3 +307,24 @@ function renderSearchResults(resultsToRender) {
         recipesList.appendChild(card);
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search");
+    const searchPageInput = document.getElementById("search-page-input");
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("q");
+
+    renderCategoryChips();
+
+    if (!searchQuery) {
+        updateSearchTitle("", false);
+        if (searchPageInput) searchPageInput.focus();
+        return;
+    }
+
+    const cleanQuery = searchQuery.trim();
+    if (searchInput) searchInput.value = cleanQuery;
+    if (searchPageInput) searchPageInput.value = cleanQuery;
+
+    renderAndFilter();
+});
