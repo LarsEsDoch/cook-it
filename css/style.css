@@ -805,7 +805,9 @@ nav .right {
 
 .search-page-form label {
     font-weight: 600;
+    font-size: 1.25rem;
     color: #333;
+    margin-left: 10px;
 }
 
 .search-page-input-row {

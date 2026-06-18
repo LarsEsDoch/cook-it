@@ -249,13 +249,13 @@ function updateSearchTitle(searchQuery, hasCategories) {
     if (!searchTitle) return;
 
     if (searchQuery && hasCategories) {
-        searchTitle.textContent = `Results for: "${searchQuery}" (filtered by category)`;
+        searchTitle.textContent = `Results for ${searchQuery} (filtered)`;
     } else if (searchQuery) {
-        searchTitle.textContent = `Search results for: "${searchQuery}"`;
+        searchTitle.textContent = `Search results for ${searchQuery}`;
     } else if (hasCategories) {
         searchTitle.textContent = "Recipes in selected categories";
     } else {
-        searchTitle.textContent = "No search term entered.";
+        searchTitle.textContent = "No search term entered";
     }
 }
 
