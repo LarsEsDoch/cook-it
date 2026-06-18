@@ -326,7 +326,6 @@ function resetSearch(categoryId) {
 
     const cleanUrl = new URL(window.location.href);
     cleanUrl.searchParams.delete("q");
-    history.replaceState({}, "", cleanUrl.toString());
 
     if (searchInput) searchInput.value = "";
     if (searchPageInput) searchPageInput.value = "";
@@ -355,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? categories.find(cat => {
             const title = cat.title.toLowerCase();
             const query = cleanQuery.toLowerCase();
-            return title === query || title.includes(query);
+            return title === query || title.includes(query) && query.length >= 3;
         })
         : null;
 
@@ -375,4 +374,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchPageInput) searchPageInput.value = cleanQuery;
 
     renderAndFilter();
+
+    const clearBtn = document.getElementById("clear-search-btn");
+
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            const searchInput = document.getElementById("search");
+            const searchPageInput = document.getElementById("search-page-input");
+            if (searchInput) searchInput.value = "";
+            if (searchPageInput) searchPageInput.value = "";
+
+            const cleanUrl = new URL(window.location.href);
+            cleanUrl.searchParams.delete("q");
+
+            if (typeof renderAndFilter === "function") renderAndFilter();
+        });
+    }
 });
