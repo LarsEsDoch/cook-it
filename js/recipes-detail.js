@@ -270,6 +270,40 @@ function renderPreparationSteps(steps) {
     `;
 }
 
+function getStoredComments(recipeId) {
+    const allComments = JSON.parse(localStorage.getItem("recipeComments")) || {};
+    return allComments[recipeId] || [];
+}
+
+function saveComment(recipeId, username, commentText) {
+    if (!commentText.trim()) return;
+
+    const allComments = JSON.parse(localStorage.getItem("recipeComments")) || {};
+
+    if (!allComments[recipeId]) {
+        allComments[recipeId] = [];
+    }
+
+    const newComment = {
+        id: "comment-" + Date.now(),
+        user: username.trim() || "Anonymous",
+        text: commentText.trim(),
+        date: new Date().toLocaleDateString("en-US", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        })
+    };
+
+    allComments[recipeId].unshift(newComment);
+
+    localStorage.setItem("recipeComments", JSON.stringify(allComments));
+
+    return newComment;
+}
+
 if (recipeDetail && recipe) {
     document.title = `Cook it - ${recipe.title}`;
 
