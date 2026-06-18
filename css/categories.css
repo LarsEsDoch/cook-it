@@ -220,6 +220,10 @@
     color: #ffffff;
 }
 
+.category-chip.active:hover {
+    border-color: #393b41;
+}
+
 .no-results {
     text-align: center;
     color: #666;

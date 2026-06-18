@@ -851,6 +851,23 @@ nav .right {
     color: var(--text-color);
 }
 
+.clear-categories-btn {
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.clear-categories-btn:hover {
+    background-color: #d5d5d5;
+    border-color: var(--primary-color);
+}
+
 .footer {
     background-color: #393b41;
     color: #94a3b8;
