@@ -342,6 +342,8 @@ function resetSearch(categoryId) {
     const cleanUrl = new URL(window.location.href);
     cleanUrl.searchParams.delete("q");
 
+    history.replaceState({}, "", cleanUrl.toString());
+
     if (searchInput) searchInput.value = "";
     if (searchPageInput) searchPageInput.value = "";
 
@@ -402,7 +404,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const cleanUrl = new URL(window.location.href);
             cleanUrl.searchParams.delete("q");
 
-            if (typeof renderAndFilter === "function") renderAndFilter();
+            history.replaceState({}, "", cleanUrl.toString());
+            
+            renderAndFilter();
         });
     }
 });
