@@ -214,10 +214,16 @@ function renderCategoryChips() {
         return count > 0;
     });
 
-    container.innerHTML = nonEmpty.map(cat => {
+    let chipsHtml = nonEmpty.map(cat => {
         const isActive = selectedCategories.has(cat.id);
         return `<button class="category-chip${isActive ? " active" : ""}" data-cat="${cat.id}">${cat.icon} ${cat.title}</button>`;
     }).join("");
+
+    if (selectedCategories.size > 0) {
+        chipsHtml += `<button type="button" id="clear-categories-btn" class="clear-categories-btn">Clear filters</button>`;
+    }
+
+    container.innerHTML = chipsHtml;
 
     container.querySelectorAll(".category-chip").forEach(chip => {
         chip.addEventListener("click", () => {
@@ -227,6 +233,15 @@ function renderCategoryChips() {
             renderAndFilter();
         });
     });
+
+    const clearCatBtn = document.getElementById("clear-categories-btn");
+    if (clearCatBtn) {
+        clearCatBtn.addEventListener("click", () => {
+            selectedCategories.clear();
+            renderCategoryChips();
+            renderAndFilter();
+        });
+    }
 }
 
 function updateSearchTitle(searchQuery, hasCategories) {
