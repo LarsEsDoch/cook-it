@@ -198,7 +198,16 @@ function renderCategoryChips() {
     const container = document.getElementById("category-cards");
     if (!container || typeof categories === "undefined") return;
 
-    const nonEmpty = categories.filter(cat => {
+    const extendedCategories = [
+        ...categories,
+        { id: "info-pages", title: "Info Pages", icon: "ℹ️", description: "Static info sites" }
+    ];
+
+    const nonEmpty = extendedCategories.filter(cat => {
+        if (cat.id === "info-pages") {
+            return staticPages.length > 0;
+        }
+
         const count = typeof recipes !== "undefined"
             ? recipes.filter(r => r.categories && r.categories.includes(cat.id)).length
             : 0;
@@ -259,8 +268,10 @@ function renderAndFilter() {
             (item.content && item.content.toLowerCase().includes(lowerQuery)) ||
             (item.ingredients && item.ingredients.some(ing => ing.toLowerCase().includes(lowerQuery)));
 
-        const catMatch = !hasCategories ||
-            (!item.isPage && item.categories && item.categories.some(c => selectedCategories.has(c)));
+        const catMatch = !hasCategories || (
+            (selectedCategories.has("info-pages") && item.isPage) ||
+            (!item.isPage && item.categories && item.categories.some(c => selectedCategories.has(c)))
+        );
 
         return textMatch && catMatch;
     });
@@ -308,6 +319,22 @@ function renderSearchResults(resultsToRender) {
     });
 }
 
+function resetSearch(categoryId) {
+    const searchInput = document.getElementById("search");
+    const searchPageInput = document.getElementById("search-page-input");
+    selectedCategories.add(categoryId);
+
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete("q");
+    history.replaceState({}, "", cleanUrl.toString());
+
+    if (searchInput) searchInput.value = "";
+    if (searchPageInput) searchPageInput.value = "";
+
+    renderCategoryChips();
+    renderAndFilter();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("search");
     const searchPageInput = document.getElementById("search-page-input");
@@ -332,18 +359,15 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         : null;
 
+    const matchedInfoPage = cleanQuery.toLowerCase().includes("info") || cleanQuery.toLowerCase().includes("page");
+
+    if (matchedInfoPage) {
+        resetSearch("info-pages");
+        return;
+    }
+
     if (matchedCategory) {
-        selectedCategories.add(matchedCategory.id);
-
-        const cleanUrl = new URL(window.location.href);
-        cleanUrl.searchParams.delete("q");
-        history.replaceState({}, "", cleanUrl.toString());
-
-        if (searchInput) searchInput.value = "";
-        if (searchPageInput) searchPageInput.value = "";
-
-        renderCategoryChips();
-        renderAndFilter();
+        resetSearch(matchedCategory.id);
         return;
     }
 
