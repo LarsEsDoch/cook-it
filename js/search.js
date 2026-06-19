@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cleanUrl.searchParams.delete("q");
 
             history.replaceState({}, "", cleanUrl.toString());
-            
+
             renderAndFilter();
         });
     }

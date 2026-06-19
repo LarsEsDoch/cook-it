@@ -387,6 +387,11 @@ if (recipeDetail && recipe) {
 
         <h1>${recipe.title}</h1>
         <p>${recipe.description}</p>
+        ${typeof renderFavoriteButton === "function"
+        ? `<button class="favorite-btn favorite-btn-detail${isFavorite(recipe.id) ? " active" : ""}" data-id="${recipe.id}">
+           ♥ ${isFavorite(recipe.id) ? "In Favorites" : "Add to Favorites"}
+       </button>`
+        : ""}
 
         ${renderCategories(recipe)}
         ${renderLabels(recipe.labels)}
