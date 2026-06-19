@@ -90,8 +90,13 @@ if (recipesList) {
             ? `<span class="user-recipe-badge">${recipe.author ? `Added by ${recipe.author}` : "User made"}</span>`
             : "";
 
+        const favBtn = typeof renderFavoriteButton === "function"
+            ? renderFavoriteButton(recipe.id)
+            : "";
+
         recipeCard.innerHTML = `
             ${userRecipeBadge}
+            ${favBtn}
             <img src="${recipe.image}" alt="${recipe.title}">
             <div class="recipe-card-content">
                 <h2>${recipe.title}</h2>
