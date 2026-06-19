@@ -83,7 +83,13 @@ function renderFilteredRecipes(container, category) {
     matchingRecipes.forEach(recipe => {
         const card = document.createElement("article");
         card.classList.add("recipe-card");
+
+        const favBtn = typeof renderFavoriteButton === "function"
+            ? renderFavoriteButton(recipe.id)
+            : "";
+
         card.innerHTML = `
+            ${favBtn}
             <img src="${recipe.image}" alt="${recipe.title}">
             <div class="recipe-card-content">
                 <h2>${recipe.title}</h2>

@@ -311,8 +311,13 @@ function renderSearchResults(resultsToRender) {
         const targetUrl = item.isPage ? item.id : `../recipes/recipe-detail.html?id=${item.id}`;
         const buttonText = item.isPage ? "Open Page" : "View recipe";
 
+        const favBtn = !item.isPage ?  typeof renderFavoriteButton === "function"
+            ? renderFavoriteButton(item.id)
+            : "" : "";
+
         card.innerHTML = `
             ${!item.isPage ? `
+                ${favBtn}
                 <img src="${item.image}" alt="${item.title}">
             ` : `
                 <div class="search-page-banner">
