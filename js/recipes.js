@@ -113,3 +113,33 @@ if (recipesList) {
         recipesList.appendChild(recipeCard);
     });
 }
+
+const rotdContainer = document.getElementById("recipe-of-the-day");
+
+if (rotdContainer) {
+    const dayIndex = Math.floor(Date.now() / 86400000);
+    const featured = recipes[dayIndex % recipes.length];
+    const rating = getStoredRating(featured);
+    const avgText = rating.count > 0 ? rating.average.toFixed(1).replace(".", ",") : "0,0";
+
+    rotdContainer.innerHTML = `
+        <div class="recipe-of-the-day-card">
+            <img src="${featured.image}" alt="${featured.title}" class="recipe-of-the-day-image">
+            <div class="recipe-of-the-day-content">
+                <h2>${featured.title}</h2>
+                <div class="rating-summary">
+                    <span class="rating-stars">★</span>
+                    <span>${avgText} Stars</span>
+                    <span class="rating-count">(${rating.count})</span>
+                </div>
+                <p>${featured.description}</p>
+                <div class="recipe-meta">
+                    <span>🕐 ${featured.time}</span>
+                    <span>📊 ${featured.difficulty}</span>
+                    <span>🍽️ ${featured.servings} serving${featured.servings !== 1 ? "s" : ""}</span>
+                </div>
+                <a href="recipes/recipe-detail.html?id=${featured.id}" class="btn">View Recipe</a>
+            </div>
+        </div>
+    `;
+}
