@@ -389,6 +389,84 @@ nav .right {
     resize: vertical;
 }
 
+.category-group-select {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.category-group-summary {
+    padding: 11px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #f9f7f4;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.category-group-summary::-webkit-details-marker {
+    display: none;
+}
+
+.category-group-summary::after {
+    content: "▸";
+    color: #aaa;
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+details[open] > .category-group-summary::after {
+    transform: rotate(90deg);
+}
+
+.category-chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px 14px;
+    background: #ffffff;
+}
+
+.category-chip-label {
+    cursor: pointer;
+}
+
+.category-chip-input {
+    display: none;
+}
+
+.category-chip-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.category-chip-pill:hover {
+    border-color: rgb(0, 187, 0);
+    color: rgb(0, 130, 0);
+}
+
+.category-chip-pill.active {
+    background-color: rgb(0, 187, 0);
+    border-color: rgb(0, 187, 0);
+    color: #ffffff;
+}
+
 .dynamic-field-section {
     display: grid;
     gap: 10px;

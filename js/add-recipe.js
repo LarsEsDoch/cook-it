@@ -15,12 +15,33 @@ function renderCategoryCheckboxes() {
     const container = document.getElementById("category-checkboxes");
     if (!container || typeof categories === "undefined") return;
 
-    container.innerHTML = categories.map(cat => `
-        <label>
-            <input type="checkbox" name="recipe-categories" value="${cat.id}">
-            ${cat.icon} ${cat.title}
-        </label>
+    const groups = {};
+    categories.forEach(cat => {
+        if (!groups[cat.group]) {
+            groups[cat.group] = { label: cat.groupLabel, items: [] };
+        }
+        groups[cat.group].items.push(cat);
+    });
+
+    container.innerHTML = Object.entries(groups).map(([groupId, group], index) => `
+        <details class="category-group-select" ${index === 0 ? "open" : ""}>
+            <summary class="category-group-summary">${group.label}</summary>
+            <div class="category-chip-grid">
+                ${group.items.map(cat => `
+                    <label class="category-chip-label">
+                        <input type="checkbox" name="recipe-categories" value="${cat.id}" class="category-chip-input">
+                        <span class="category-chip-pill">${cat.icon} ${cat.title}</span>
+                    </label>
+                `).join("")}
+            </div>
+        </details>
     `).join("");
+
+    container.querySelectorAll(".category-chip-input").forEach(input => {
+        input.addEventListener("change", () => {
+            input.nextElementSibling.classList.toggle("active", input.checked);
+        });
+    });
 }
 
 function createDynamicField(inputClass, placeholder, required = false) {
