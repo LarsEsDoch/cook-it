@@ -93,6 +93,7 @@ function renderFilteredRecipes(container, category) {
             <img src="${recipe.image}" alt="${recipe.title}">
             <div class="recipe-card-content">
                 <h2>${recipe.title}</h2>
+                ${renderRatingSummary(recipe)}
                 <p>${recipe.description}</p>
                 <div class="recipe-meta">
                     <span>${recipe.time}</span>

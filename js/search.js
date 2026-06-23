@@ -326,6 +326,7 @@ function renderSearchResults(resultsToRender) {
             `}
             <div class="recipe-card-content">
                 <h2>${item.title}</h2>
+                ${renderRatingSummary(item)}
                 <p>${item.description}</p>
                 ${!item.isPage ? `
                 <div class="recipe-meta">
