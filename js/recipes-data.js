@@ -71,7 +71,7 @@ const recipes = [
         id: "fresh-salad",
         title: "Fresh Salad",
         description: "A light and healthy salad for every day.",
-        image: "img/recipes/salad.jpg",
+        image: "img/recipes/placeholder.png",
         time: "10 min",
         difficulty: "Easy",
         servings: 1,

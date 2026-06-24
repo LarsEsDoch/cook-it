@@ -253,13 +253,16 @@ function renderPreparationSteps(steps) {
                 ${steps.map((step) => {
         const stepText = typeof step === "string" ? step : step.text;
         const stepImage = typeof step === "string" ? "" : step.image;
+        const stepImageSrc = !recipe.isUserRecipe
+            ? "../" + step.image
+            : step.image;
 
         return `
                         <li class="preparation-step-item">
                             <p>${stepText}</p>
                             ${
             stepImage
-                ? `<img src="${stepImage}" alt="Preparation step image" class="preparation-step-image">`
+                ? `<img src="${stepImageSrc}" alt="Preparation step image" class="preparation-step-image">`
                 : ""
         }
                         </li>
@@ -382,8 +385,12 @@ function activateCommentButton() {
 if (recipeDetail && recipe) {
     document.title = `Cook it - ${recipe.title}`;
 
+    const imageSrc = !recipe.isUserRecipe || recipe.image === "img/recipes/default-recipe.png"
+        ? "../" + recipe.image
+        : recipe.image;
+
     recipeDetail.innerHTML = `
-        <img src="${recipe.image}" alt="${recipe.title}" class="recipe-detail-image">
+        <img src="${imageSrc}" alt="${recipe.title}" class="recipe-detail-image">
 
         <h1>${recipe.title}</h1>
         <p>${recipe.description}</p>
