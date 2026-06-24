@@ -630,7 +630,7 @@ details[open] > .category-group-summary::after {
 
 .recipes-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(260px, 1fr));
+    grid-template-columns: repeat(5 , minmax(300px, 1fr));
     gap: 32px;
 }
 
@@ -1120,7 +1120,7 @@ details[open] > .category-group-summary::after {
 
 .about-us-promo {
     max-width: 1100px;
-    margin: 0 auto 100px;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
@@ -1314,21 +1314,23 @@ details[open] > .category-group-summary::after {
     margin: 10px 0 0 0;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1700px) {
     .recipes-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(300px, 1fr));
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1350px) {
     .recipes-grid {
-        grid-template-columns: repeat(3, 1fr);
+        margin-left: 50px;
+        margin-right: 50px;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     .recipes-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
     }
     .hero-content h1 {
         font-size: 36px;
@@ -1357,7 +1359,7 @@ details[open] > .category-group-summary::after {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .recipes-grid {
         grid-template-columns: 1fr;
     }

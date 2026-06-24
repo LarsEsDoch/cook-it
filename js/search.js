@@ -309,7 +309,7 @@ function renderSearchResults(resultsToRender) {
         card.classList.add("recipe-card");
 
         const targetUrl = item.isPage ? item.id : `../recipes/recipe-detail.html?id=${item.id}`;
-        const buttonText = item.isPage ? "Open Page" : "View recipe";
+        const buttonText = item.isPage ? "Open Page" : "View Recipe";
 
         const favBtn = !item.isPage ?  typeof renderFavoriteButton === "function"
             ? renderFavoriteButton(item.id)

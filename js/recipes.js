@@ -106,7 +106,7 @@ if (recipesList) {
                     <span>${recipe.time}</span>
                     <span>${recipe.difficulty}</span>
                 </div>
-                <a href="recipe-detail.html?id=${recipe.id}" class="btn">View recipe</a>
+                <a href="recipe-detail.html?id=${recipe.id}" class="btn">View Recipe</a>
             </div>
         `;
 
