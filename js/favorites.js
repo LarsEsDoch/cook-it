@@ -76,9 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
     favoriteRecipes.forEach(recipe => {
         const card = document.createElement("article");
         card.classList.add("recipe-card");
+
+        const userRecipeBadge = recipe.isUserRecipe
+            ? `<span class="user-recipe-badge">${recipe.author ? `Added by ${recipe.author}` : "User made"}</span>`
+            : "";
+
+        const imageSrc = !recipe.isUserRecipe || recipe.image === "img/recipes/default-recipe.png"
+            ? "../" + recipe.image
+            : recipe.image;
+
+
         card.innerHTML = `
+            ${userRecipeBadge}
             ${renderFavoriteButton(recipe.id)}
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <img src="${imageSrc}" alt="${recipe.title}">
             <div class="recipe-card-content">
                 <h2>${recipe.title}</h2>
                 <p>${recipe.description}</p>

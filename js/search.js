@@ -311,14 +311,23 @@ function renderSearchResults(resultsToRender) {
         const targetUrl = item.isPage ? item.id : `../recipes/recipe-detail.html?id=${item.id}`;
         const buttonText = item.isPage ? "Open Page" : "View Recipe";
 
+        const userRecipeBadge = item.isUserRecipe
+            ? `<span class="user-recipe-badge">${item.author ? `Added by ${item.author}` : "User made"}</span>`
+            : "";
+
+        const imageSrc = !item.isUserRecipe || item.image === "img/recipes/default-recipe.png"
+            ? "../" + item.image
+            : item.image;
+
         const favBtn = !item.isPage ?  typeof renderFavoriteButton === "function"
             ? renderFavoriteButton(item.id)
             : "" : "";
 
         card.innerHTML = `
             ${!item.isPage ? `
+                ${userRecipeBadge}
                 ${favBtn}
-                <img src="${item.image}" alt="${item.title}">
+                <img src="${imageSrc}" alt="${item.title}">
             ` : `
                 <div class="search-page-banner">
                     <span>ℹ️ Info Page</span>
@@ -326,7 +335,9 @@ function renderSearchResults(resultsToRender) {
             `}
             <div class="recipe-card-content">
                 <h2>${item.title}</h2>
-                ${renderRatingSummary(item)}
+                ${!item.isPage ? `
+                    ${renderRatingSummary(item)}
+                ` : ``}
                 <p>${item.description}</p>
                 ${!item.isPage ? `
                 <div class="recipe-meta">

@@ -276,7 +276,7 @@ if (addRecipeForm) {
             id: `${title.toLowerCase().replaceAll(" ", "-")}-${Date.now()}`,
             title,
             description,
-            image: recipeImage || "img/recipe.png",
+            image: recipeImage || "img/recipes/default-recipe.png",
             time,
             difficulty,
             servings,

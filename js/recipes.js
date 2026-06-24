@@ -90,6 +90,10 @@ if (recipesList) {
             ? `<span class="user-recipe-badge">${recipe.author ? `Added by ${recipe.author}` : "User made"}</span>`
             : "";
 
+        const imageSrc = !recipe.isUserRecipe || recipe.image === "img/recipes/default-recipe.png"
+            ? "../" + recipe.image
+            : recipe.image;
+
         const favBtn = typeof renderFavoriteButton === "function"
             ? renderFavoriteButton(recipe.id)
             : "";
@@ -97,7 +101,7 @@ if (recipesList) {
         recipeCard.innerHTML = `
             ${userRecipeBadge}
             ${favBtn}
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <img src="${imageSrc}" alt="${recipe.title}">
             <div class="recipe-card-content">
                 <h2>${recipe.title}</h2>
                 ${renderRatingSummary(recipe)}
