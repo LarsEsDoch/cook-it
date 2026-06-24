@@ -1,14 +1,41 @@
 const recipes = [
     {
-        id: "pasta-tomato",
-        title: "Tomato Pasta",
-        description: "A quick and easy pasta dish with fresh tomato sauce.",
-        image: "img/recipes/pasta.jpg",
-        time: "25 min",
-        difficulty: "Easy",
-        servings: 2,
-        categories: ["main-dishes", "pasta-noodles", "vegetarian", "quick-meals", "easy"],
-        ingredients: [
+        "id": "tomato-pasta",
+        "title": "Tomato Pasta",
+        "description": "A quick and easy pasta dish with fresh tomato sauce.",
+        "image": "img/recipes/pasta/pasta.png",
+        "time": "25 min",
+        "difficulty": "Easy",
+        "servings": 2,
+        "author": "System",
+        "createdAt": "Jun 25, 2026, 1:25 AM",
+        "isUserRecipe": false,
+        "rating": {
+            "average": 0,
+            "count": 0
+        },
+        "nutrition": {
+            "calories": 450,
+            "protein": 12,
+            "carbs": 75,
+            "fat": 11,
+            "fiber": 4
+        },
+        "categories": [
+            "main-dishes",
+            "pasta-noodles",
+            "vegetarian",
+            "quick-meals",
+            "easy"
+        ],
+        "labels": [],
+        "utensils": [
+            "Pot",
+            "Frying pan",
+            "Knife",
+            "Cutting board"
+        ],
+        "ingredients": [
             "200 g pasta",
             "250 g tomatoes",
             "1 garlic clove",
@@ -16,13 +43,29 @@ const recipes = [
             "Salt",
             "Pepper"
         ],
-        steps: [
-            "Cook the pasta according to the package instructions.",
-            "Chop the tomatoes and garlic.",
-            "Heat olive oil in a pan and sauté the garlic.",
-            "Add tomatoes and simmer for 10 minutes.",
-            "Mix the sauce with the pasta and serve."
-        ]
+        "steps": [
+            {
+                "text": "Cook the pasta according to the package instructions.",
+                "image": "img/recipes/pasta/step-1.png"
+            },
+            {
+                "text": "Chop the tomatoes and garlic.",
+                "image": "img/recipes/pasta/step-2.png"
+            },
+            {
+                "text": "Heat olive oil in a pan and sauté the garlic.",
+                "image": "img/recipes/pasta/step-3.png"
+            },
+            {
+                "text": "Add tomatoes and simmer for 10 minutes.",
+                "image": "img/recipes/pasta/step-4.png"
+            },
+            {
+                "text": "Mix the sauce with the pasta and serve.",
+                "image": "img/recipes/pasta/step-5.png"
+            }
+        ],
+        "generalNotes": "Best served with some fresh basil and grated parmesan on top."
     },
     {
         id: "fresh-salad",
