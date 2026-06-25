@@ -202,6 +202,7 @@ nav .right {
     box-shadow: 0 4px 12px rgba(0, 187, 0, 0.35);
 }
 
+/* Karte mit Rezept des Tages was ein 2 spaltiges Raster ist und eine feste Bildbreite hat */
 .recipe-of-the-day-card {
     background: #ffffff;
     border-radius: 24px;
@@ -639,6 +640,7 @@ details[open] > .category-group-summary::after {
     font-size: 40px;
 }
 
+/* Responsives Raster für Rezeptkarten mit 5 Spalten auf breiten Bildschirmen */
 .recipes-grid {
     display: grid;
     grid-template-columns: repeat(5 , minmax(300px, 1fr));
@@ -1037,6 +1039,7 @@ details[open] > .category-group-summary::after {
     font-weight: 600;
 }
 
+/* Nährwertangaben haben ein gleichmäßiges Raster mit 5 Spalten */
 .nutrition-detail-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -1311,6 +1314,7 @@ details[open] > .category-group-summary::after {
     margin: 10px 0 0 0;
 }
 
+/* Skalierung erst auf 4, dann 3, dann 2, dann 1 Spalte bei Mobilgeräten oder kleineren Bildschirmen */
 @media (max-width: 1700px) {
     .recipes-grid {
         grid-template-columns: repeat(4, minmax(300px, 1fr));

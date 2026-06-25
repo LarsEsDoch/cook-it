@@ -2,6 +2,7 @@
     overflow: hidden;
 }
 
+/* Story-Bereich der Über uns Seite. Teilt Seite in 2 Spalten mit abwechselndem Text und Bild Anordnungen */
 .about-story-block {
     display: grid;
     grid-template-columns: 1.25fr 0.9fr;

@@ -20,6 +20,7 @@
     border-bottom: 2px solid var(--border-color);
 }
 
+/* Raster für Kategoriekarten mit einer automatischen Füllung  von mindestens 190 px pro Karte */
 .category-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -112,6 +113,7 @@
     color: var(--primary-color);
 }
 
+/* Hervorgehobene Kategorien mit einem festen 5 Spalten Raster */
 .featured-categories-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -231,6 +233,7 @@
     padding: 40px 0;
 }
 
+/* Kategorien reduzieren sich auf kleinen Bildschirmen erst auf 3 und dann auf 2 Spalten */
 @media (max-width: 1200px) {
     .featured-categories-grid {
         grid-template-columns: repeat(3, 1fr);
