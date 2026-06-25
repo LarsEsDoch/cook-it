@@ -39,3 +39,8 @@ main {
     border-radius: 0 6px 6px 0;
     margin: 20px 0;
 }
+
+.legal-notice-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
