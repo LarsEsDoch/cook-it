@@ -17,12 +17,12 @@ main {
     margin-top: 0;
     margin-bottom: 25px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--accent-orange);
 }
 
 .legals-container h2 {
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: var(--accent-orange);
     margin-top: 30px;
     margin-bottom: 12px;
 }
@@ -33,9 +33,9 @@ main {
 }
 
 .contact-highlight {
-    background-color: var(--accent-color);
+    background-color: var(--accent-orange-light);
     padding: 15px 20px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--accent-orange);
     border-radius: 0 6px 6px 0;
     margin: 20px 0;
 }
