@@ -91,7 +91,7 @@ if (recipesList) {
             : "";
 
         const imageSrc = !recipe.isUserRecipe || recipe.image === "img/recipes/default-recipe.png"
-            ? "../" + recipe.image
+            ? (isHomePage ? recipe.image : "../" + recipe.image)
             : recipe.image;
 
         const favBtn = typeof renderFavoriteButton === "function"
@@ -110,7 +110,7 @@ if (recipesList) {
                     <span>${recipe.time}</span>
                     <span>${recipe.difficulty}</span>
                 </div>
-                <a href="recipe-detail.html?id=${recipe.id}" class="btn">View Recipe</a>
+                <a href="${isHomePage ? 'recipes/' : ''}recipe-detail.html?id=${recipe.id}" class="btn">View Recipe</a>
             </div>
         `;
 
